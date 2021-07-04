@@ -10,26 +10,30 @@
 </head>
 
 <body>
-    <form action="POST" id="form1" novalidate>
+    <form action="POST" id="form1" onsubmit="validateForm()">
         <h1>FORM VALIDATION ODEVI</h1>
         <div class="form-body">
             <div>
                 <label for="userName">Kullanıcı Adı :</label>
-                <input type="text" placeholder="Kullanıcı Adı" required>
+                <input type="text" placeholder="Kullanıcı Adı" required id="userName">
+                <span class="error"></span>
             </div>
             <div>
                 <label for="password">Parola :</label>
-                <input type="password" placeholder="Şifre" required>
+                <input type="password" placeholder="Şifre" required id="userPassword">
+                <span class="error"></span>
             </div>
             <div>
                 <label for="eMail">E-Mail :</label>
-                <input type="email" placeholder="E-mail" required>
+                <input type="email" placeholder="E-mail" required id="userEmail">
+                <span class="error"></span>
             </div>
             <div>
-                <input type="checkbox" required>
+                <input id="checkbox" type="checkbox" required>
+                <span class="error"></span>
             </div>
             <div>
-                <button>Gönder</button>
+                <button type="submit" id="sendButton">Gönder</button>
             </div>
         </div>
     </form>
