@@ -25,18 +25,18 @@ userName.addEventListener('submit', ()=>{
     }
   })
 
-userPassword.addEventListener('submit', ()=>{
-    if(userPassword.value != "" || userPassword.value.length < 8 ){
-        userPassword.innerHTML = "şifreniz en az 8 karakterden oluşmalıdır";
+userPassword.addEventListener('change', ()=>{
+    if(userPassword.value.length < 8 ){
+        spanError[1].innerHTML = "şifreniz en az 8 karakterden oluşmalıdır";
     }
-    else if (userPassword.value != ""){
-        userPassword.innerHTML = "";
+    else if (userPassword.value.length > 8 ){
+        spanError[1].innerHTML = "";
     }
   })
 
 userEmail.addEventListener('submit', ()=>{
     if(!(userEmail.value.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"))){
-        userEmail.innerHTML = "geçersiz email girdiniz"
+        spanError[2].innerHTML = "geçersiz email girdiniz"
     }
     else {
         userEmail.innerHTML = "";
