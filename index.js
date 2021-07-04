@@ -12,6 +12,9 @@ function check(){
     if(userPassword.value == ""){
         spanError[1].innerHTML = "Lütfen Bu Alanı Doldurun"
     }
+    else if(userPassword.value.length < 8){
+        spanError[1].innerHTML = "şifreniz en az 8 karakterden oluşmalıdır"
+    }
     if(userEmail.value == ""){
         spanError[2].innerHTML = "Lütfen Bu Alanı Doldurun"
     }
@@ -19,9 +22,9 @@ function check(){
         spanError[3].innerHTML = "Lütfen Bu Alanı Doldurun"
     }
 }
-userName.addEventListener('submit', ()=>{
+userName.addEventListener('change', ()=>{
     if(userName.value != ""){
-        userName.innerHTML = "";
+        spanError[0].innerHTML = "";
     }
   })
 
@@ -29,19 +32,20 @@ userPassword.addEventListener('change', ()=>{
     if(userPassword.value.length < 8 ){
         spanError[1].innerHTML = "şifreniz en az 8 karakterden oluşmalıdır";
     }
-    else if (userPassword.value.length > 8 ){
+    else if (userPassword.value.length >= 8 ){
         spanError[1].innerHTML = "";
     }
   })
 
-userEmail.addEventListener('submit', ()=>{
-    if(!(userEmail.value.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"))){
-        spanError[2].innerHTML = "geçersiz email girdiniz"
+userEmail.addEventListener('change', ()=>{
+    if(!(userEmail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))){
+        spanError[2].innerHTML = "geçersiz email girdiniz";
     }
     else {
-        userEmail.innerHTML = "";
+        spanError[2].innerHTML = "";
     }
   })
+
   checkbox.addEventListener('submit', ()=>{
     if (checkbox.checked) {
         checkbox.innerHTML = "";
