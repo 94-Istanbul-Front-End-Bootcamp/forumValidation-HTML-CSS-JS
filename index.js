@@ -9,10 +9,11 @@ function check(){
     if(userName.value == ""){
         spanError[0].innerHTML = "Lütfen Bu Alanı Doldurun"
     }
-    if(userPassword.value == ""){
+    if(userPassword.value.length == 0){
         spanError[1].innerHTML = "Lütfen Bu Alanı Doldurun"
     }
-    else if(userPassword.value.length < 8){
+    if(userPassword.value.length < 8){
+        checkbox.checked = false
         spanError[1].innerHTML = "şifreniz en az 8 karakterden oluşmalıdır"
     }
     if(userEmail.value == ""){
